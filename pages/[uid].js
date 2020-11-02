@@ -4,61 +4,53 @@ import { RichText } from "prismic-reactjs";
 
 import { queryRepeatableDocuments } from 'utils/queries'
 
-// Project components
-import DefaultLayout from "layouts";
-import { BackButton, SliceZone } from "components/post";
-
 // Project functions & styles
 import { Client } from "utils/prismicHelpers";
-import { postStyles } from "styles";
+
+// Project components & functions
+import DefaultLayout from "layouts";
+import { Card} from "../components";
 
 /**
- * Post page component
+ * Homepage component
  */
-const Post = ({ post }) => {
-  if (post && post.data) {
-    const hasTitle = RichText.asText(post.data.title).length !== 0;
-    const title = hasTitle ? RichText.asText(post.data.title) : "Untitled";
-
+const Deck = ({ doc }) => {
+  if (doc && doc.data) {
     return (
       <DefaultLayout>
         <Head>
-          <title>{title}</title>
+          <title>{RichText.asText(doc.data.title)}</title>
         </Head>
-        <div className="main">
-          <div className="outer-container">
-            <BackButton />
-            <h1>{title}</h1>
-          </div>
-          <SliceZone sliceZone={post.data.body} />
+        <div>
+          {doc.data.cards.map( c => <Card card={c.card} key={c.card.id} /> )}
         </div>
-        <style jsx global>
-          {postStyles}
-        </style>
       </DefaultLayout>
     );
   }
-
   return null;
 };
 
-export async function getStaticProps({ params, preview = null, previewData = {} }) {
+export async function getStaticProps({ params = null, preview = null, previewData = {} }) {
+
   const { ref } = previewData
-  const post = await Client().getByUID("card", params.uid, ref ? { ref } : null) || {}
+  const client = Client()
+  const doc = await client.getByUID("deck", params.uid, {fetchLinks: ['card.photo', 'card.title', 'card.quote']}) || {}
+
   return {
     props: {
-      preview,
-      post
-    }
+      doc,
+      preview
+    },
+    unstable_revalidate: 60
   }
 }
 
 export async function getStaticPaths() {
-  const documents = await queryRepeatableDocuments((doc) => doc.type === 'post')
+  const documents = await queryRepeatableDocuments((doc) => doc.type === 'deck')
   return {
     paths: documents.map(doc => `/${doc.uid}`),
     fallback: true,
   }
 }
 
-export default Post;
+export default Deck;

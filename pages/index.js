@@ -5,20 +5,23 @@ import { RichText, Link } from "prismic-reactjs";
 
 // Project components & functions
 import DefaultLayout from "layouts";
-import { Header, Card} from "../components";
+import { Header, Card, DeckLink} from "../components";
 import { Client } from "utils/prismicHelpers";
+import { queryRepeatableDocuments } from 'utils/queries'
 
 /**
  * Homepage component
  */
-const Home = ({ doc, posts }) => {
-  if (doc && doc.data) {
+const Home = ( decks ) => {
+  if (decks) {
     return (
       <DefaultLayout>
         <Head>
-          <title>{RichText.asText(doc.data.title)}</title>
+          <title>Index</title>
         </Head>
-        <Card card={doc.data.cards} />
+        <div>
+          {decks.decks.map( d => <DeckLink deck={d} /> )}
+        </div>
       </DefaultLayout>
     );
   }
@@ -28,12 +31,11 @@ const Home = ({ doc, posts }) => {
 export async function getStaticProps({ preview = null, previewData = {} }) {
 
   const { ref } = previewData
-  const client = Client()
-  const doc = await client.getByUID("deck", "deck", null) || {}
+  const decks = await queryRepeatableDocuments( (doc) => doc.type === 'deck' ) || {}
 
   return {
     props: {
-      doc,
+      decks,
       preview
     },
     unstable_revalidate: 60
