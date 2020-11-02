@@ -16,9 +16,9 @@ const Home = ({ doc, posts }) => {
     return (
       <DefaultLayout>
         <Head>
-          <title>{RichText.asText(doc.data.headline)}</title>
+          <title>{RichText.asText(doc.data.title)}</title>
         </Head>
-        <Card card={doc.data.card} />
+        <Card card={doc.data.body.card} />
       </DefaultLayout>
     );
   }
@@ -28,24 +28,15 @@ const Home = ({ doc, posts }) => {
 export async function getStaticProps({ preview = null, previewData = {} }) {
 
   const { ref } = previewData
-
   const client = Client()
-
-  const doc = await client.getSingle("homepage", ref ? { ref } : null) || {}
-
-  const posts = await client.query(
-    Prismic.Predicates.at("document.type", "post"), {
-      orderings: "[my.post.date desc]",
-      ...(ref ? { ref } : null)
-    },
-  )
+  const doc = await client.getSingle("card", { fetchLinks: ['article.title','article.cover','article.summary']}) || {}
 
   return {
     props: {
       doc,
-      posts: posts ? posts.results : [],
       preview
-    }
+    },
+    unstable_revalidate: 60
   }
 }
 
