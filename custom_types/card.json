@@ -1,0 +1,53 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "uid"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "card" : [ ]
+        },
+        "choices" : {
+          "card" : {
+            "type" : "Slice",
+            "fieldset" : "card",
+            "description" : "card",
+            "icon" : "face",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : {
+              "photo" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "photo"
+                }
+              },
+              "title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "title"
+                }
+              },
+              "quote" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label" : "quote"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
