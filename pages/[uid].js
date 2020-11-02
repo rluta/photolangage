@@ -9,7 +9,7 @@ import { Client } from "utils/prismicHelpers";
 
 // Project components & functions
 import DefaultLayout from "layouts";
-import { Card} from "../components";
+import { Card } from "../components";
 
 /**
  * Homepage component
@@ -19,7 +19,7 @@ const Deck = ({ doc }) => {
     return (
       <DefaultLayout>
         <Head>
-          <title>{RichText.asText(doc.data.title)}</title>
+          <title>{doc.uid}</title>
         </Head>
         <div>
           {doc.data.cards.map( c => <Card card={c.card} key={c.card.id} /> )}
