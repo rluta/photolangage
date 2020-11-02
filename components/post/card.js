@@ -1,4 +1,5 @@
 import React from 'react'
+import { default as NextLink } from 'next/link'
 import { RichText } from 'prismic-reactjs'
 
 import { DocLink } from 'components'
@@ -7,12 +8,12 @@ import { cardStyles } from 'styles'
 const Card = ({ card }) => {
   return (
         <div className="card-container">
-          <img className="photo" alt={card.photo} src={card.photo}/>
+          <img className="photo" src='images/6b2bf485-aa12-44ef-8f06-dce6b91b9309_dancing.png'/>
           <h2 className="title">
-            {RichText.asText(card.title)}
+            One
           </h2>
           <p className="quote">
-            {RichText.asText(card.quote)}
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
           </p>
           <style jsx global>{cardStyles}</style>
         </div>
