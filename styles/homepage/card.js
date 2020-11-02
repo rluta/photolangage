@@ -3,7 +3,7 @@ import css from "styled-jsx/css";
 export const cardStyles = css.global`
     .card-container{
       width: 500px;
-      padding: 1%;
+      padding: 2%;
       margin: auto;
       border: solid;
     }
@@ -22,6 +22,13 @@ export const cardStyles = css.global`
     .quote{
       text-align: center;
       font-size: 18px;
+    }
+
+    .random{
+      width: 100%;
+      margin: auto;
+      text-align: center;
+      background-color: blue;
     }
   }
 `;
