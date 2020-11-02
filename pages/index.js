@@ -18,7 +18,7 @@ const Home = ({ doc, posts }) => {
         <Head>
           <title>{RichText.asText(doc.data.title)}</title>
         </Head>
-        <Card card={doc.data.body.card} />
+        <Card card={doc.data.cards} />
       </DefaultLayout>
     );
   }
@@ -29,7 +29,7 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
 
   const { ref } = previewData
   const client = Client()
-  const doc = await client.getSingle("card", { fetchLinks: ['article.title','article.cover','article.summary']}) || {}
+  const doc = await client.getByUID("deck", "deck", null) || {}
 
   return {
     props: {

@@ -7,9 +7,10 @@ import { DocLink } from 'components'
 import { cardStyles } from 'styles'
 
 const Card = ({ card }) => {
+  if (card) {
   return (
         <div className="card-container">
-          <img className="photo" src='images/6b2bf485-aa12-44ef-8f06-dce6b91b9309_dancing.png'/>
+          <img className="photo" src={card.photo}/>
           <h2 className="title">
             One
           </h2>
@@ -22,6 +23,11 @@ const Card = ({ card }) => {
           <style jsx global>{cardStyles}</style>
         </div>
       );
+    }
+    else {
+      return
+        null
+    }
 }
 
 export default Card
