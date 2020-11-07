@@ -1,3 +1,2 @@
-export { errorStyles, footerStyles, globals, reset } from "./general";
-export { headerStyles, postListStyles, cardStyles} from "./homepage";
-export { postStyles, imageCaptionStyles, quoteStyles } from "./posts";
+export { errorStyles, globals, reset } from "./general";
+export { cardStyles} from "./card";

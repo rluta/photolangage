@@ -1,39 +1,23 @@
 {
-  "name": "nextjs-blog",
+  "name": "photolangage",
   "version": "1.0.0",
-  "description": "Sample blog built with Next.js using Prismic headless CMS",
+  "description": "photo lanaguage",
   "private": true,
-  "author": {
-    "name": "Raul Gonzalez",
-    "email": "raul.gonzalez@prismic.io"
-  },
   "dependencies": {
-    "next": "^9.1.4",
+    "next": "^9.5.2",
     "prismic-javascript": "3.0.1",
-    "prismic-reactjs": "^1.3.3",
+    "prismic-reactjs": "^1.3.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "storybook": "start-storybook -p 6006 --no-dll",
-    "build-storybook": "build-storybook --no-dll"
+    "start": "next start"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/prismicio/nextjs-blog.git"
-  },
-  "license": "Apache-2.0",
+  "license": "private",
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@storybook/addon-actions": "^6.0.28",
-    "@storybook/addon-essentials": "^6.0.28",
-    "@storybook/addon-links": "^6.0.28",
-    "@storybook/react": "^6.0.28",
     "babel-loader": "^8.1.0",
-    "react-is": "^17.0.1",
-    "storybook-addon-jsx": "^7.3.4"
+    "babel-preset-react-app": "^9.1.2"
   }
 }

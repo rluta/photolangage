@@ -2,12 +2,12 @@ import React from 'react'
 import {RichText} from 'prismic-reactjs'
 import {cardStyles} from 'styles'
 
-const Card = ({card}) => {
+const Card = ({uid, url, title, quote}) => {
     return (
       <div className="card-container">
-        <img className="photo" src={card.data.photo.url}/>
-        <h2 className="title">{RichText.asText(card.data.title)}</h2>
-        <p className="quote">{RichText.asText(card.data.quote)}</p>
+        <img alt={uid} className="photo" src={url} />
+        <h2 className="title">{RichText.asText(title)}</h2>
+        <p className="quote">{RichText.asText(quote)}</p>
         <style jsx global>{cardStyles}</style>
       </div>
     );
