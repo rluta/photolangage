@@ -23,7 +23,7 @@ const Deck = ({ doc }) => {
         <Head>
         </Head>
         <div>
-          {doc.data.cards.filter((card, idx) => idx == rdm).map( c => <Card card={c.card} key={c.card.id} /> )}
+          {doc.data.cards.filter((card, idx) => idx === rdm).map( c => <Card card={c.card} key={c.card.id} /> )}
         </div>
       </DefaultLayout>
     );
