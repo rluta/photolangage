@@ -37,8 +37,7 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
     props: {
       decks,
       preview
-    },
-    unstable_revalidate: 60
+    }
   }
 }
 

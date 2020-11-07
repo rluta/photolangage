@@ -41,8 +41,7 @@ export async function getStaticProps({ params = null, preview = null, previewDat
     props: {
       doc,
       preview
-    },
-    unstable_revalidate: 60
+    }
   }
 }
 
