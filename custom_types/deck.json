@@ -1,0 +1,26 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "uid"
+      }
+    },
+    "cards" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "card" : {
+            "type" : "Link",
+            "config" : {
+              "select" : "document",
+              "customtypes" : [ "card" ],
+              "label" : "card"
+            }
+          }
+        },
+        "label" : "cards"
+      }
+    }
+  }
+}
