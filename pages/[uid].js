@@ -1,8 +1,4 @@
 import React from "react";
-import Head from "next/head";
-import { RichText } from "prismic-reactjs";
-
-import { queryRepeatableDocuments } from 'utils/queries'
 
 // Project functions & styles
 import { Client } from "utils/prismicHelpers";
@@ -30,9 +26,9 @@ export async function getServerSideProps({ params = null, preview = null, previe
   const { ref } = previewData
   const client = Client()
   const doc = await client.getByUID("deck", params.uid, {fetchLinks: ['card.photo', 'card.title', 'card.quote']}) || {}
-  doc.data.cards.sort( (a,b) => a.uid > b.uid ? 1 : -1 )
   const rdm = Math.floor(Math.random() * doc.data.cards.length)
   const card = doc.data.cards[rdm].card
+
   console.log(`Returning card ${card.uid}`)
 
   return {

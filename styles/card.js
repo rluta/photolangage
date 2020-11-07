@@ -1,34 +1,31 @@
 import css from "styled-jsx/css";
 
 export const cardStyles = css.global`
+    main {
+      display: flex;
+    }
+
     .card-container{
-      width: 500px;
+      display: flex;
+      flex-direction: column;
       padding: 2%;
       margin: auto;
       border: solid;
     }
 
     .photo{
-      width: 50%;
-      margin-left: 25%;
-      margin-bottom: 15%;
+      margin: 20px 5px;
     }
 
     .title{
       text-align: center;
       color: #000;
+      font-size: 1.5em;
     }
 
     .quote{
       text-align: center;
-      font-size: 18px;
-    }
-
-    .random{
-      width: 100%;
-      margin: auto;
-      text-align: center;
-      background-color: blue;
+      font-size: 1.2em;
     }
   }
 `;
