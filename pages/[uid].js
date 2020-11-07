@@ -14,8 +14,11 @@ import { Card} from "../components";
 /**
  * Homepage component
  */
-const Deck = ({ doc, rdm }) => {
+const Deck = ({ doc }) => {
   if (doc && doc.data) {
+    const rdm = Math.floor(Math.random() * doc.data.cards.length)
+    console.log(`Returning card ${doc.data.cards[rdm].uid}`)
+
     return (
       <DefaultLayout>
         <Head>
@@ -34,16 +37,14 @@ export async function getStaticProps({ params = null, preview = null, previewDat
   const { ref } = previewData
   const client = Client()
   const doc = await client.getByUID("deck", params.uid, {fetchLinks: ['card.photo', 'card.title', 'card.quote']}) || {}
-  const rdm = Math.floor(Math.random() * doc.data.cards.length)
 
-  console.log(`Returning card ${doc.data.cards[rdm].uid}`)
 
   return {
     props: {
       doc,
-      rdm,
       preview
-    }
+    },
+    revalidate: 30
   }
 }
 
