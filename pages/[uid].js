@@ -44,7 +44,7 @@ export async function getStaticProps({ params = null, preview = null, previewDat
       doc,
       preview
     },
-    revalidate: 30
+    unstable_revalidate: 60
   }
 }
 
