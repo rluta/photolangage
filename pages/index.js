@@ -1,12 +1,9 @@
 import React from "react";
 import Head from "next/head";
-import Prismic from "prismic-javascript";
-import { RichText, Link } from "prismic-reactjs";
 
 // Project components & functions
 import DefaultLayout from "layouts";
-import { Header, Card, DeckLink} from "../components";
-import { Client } from "utils/prismicHelpers";
+import { DeckLink} from "../components";
 import { queryRepeatableDocuments } from 'utils/queries'
 
 /**
