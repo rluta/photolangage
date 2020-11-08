@@ -11,6 +11,7 @@ export const cardStyles = css.global`
       padding: 2%;
       margin: auto;
       border: solid;
+      max-width: 100vw;
     }
 
     .photo{
