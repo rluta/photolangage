@@ -15,11 +15,10 @@ export const globals = css.global`
  * Globals
  */
   body {
-    padding: 3rem 0 0 0;
     color: #353535;
     line-height: 1.5;
     font-family: "PT Serif", serif;
-    font-size: 20px;
+    font-size: calc(16px + (24-16)*(100vw-360px)/(1200-360));
   }
   a {
     color: #353535;
