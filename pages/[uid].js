@@ -1,8 +1,11 @@
 import React from "react";
 
+// Project functions & styles
+import { Client } from "utils/prismicHelpers";
+
 // Project components & functions
 import DefaultLayout from "layouts";
-import { Card } from "../components";
+import { Card} from "../components";
 
 /**
  * Homepage component
@@ -19,8 +22,6 @@ const Deck = ({ card }) => {
 };
 
 export async function getServerSideProps({ params = null, preview = null, previewData = {} }) {
-  // Project functions & styles
-  import { Client } from "utils/prismicHelpers";
 
   const { ref } = previewData
   const client = Client()
